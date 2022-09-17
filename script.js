@@ -52,15 +52,14 @@ for (let i = 0; i < 4; i++) {
 
 	for (let j = 0; j < 4; j++) {
 		const td = document.createElement('td');
-		td.dataset.card = cards.splice(Math.floor(Math.random() * cards.length), 1);
+		let card = cards.splice(Math.floor(Math.random() * cards.length), 1);
 		td.addEventListener('click', () => {
 			if (!active || td.innerHTML) return;
 
-			td.innerHTML = `<i class="fas ${td.dataset.card}"></i>`;
+			td.innerHTML = `<i class="fas ${card}"></i>`;
 			td.style.backgroundColor = 'rgb(240, 240, 240)';
 
 			openCard.push(td);
-
 			if (openCard.length === 2) checkCard();
 		});
 
